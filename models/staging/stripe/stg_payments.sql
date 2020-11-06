@@ -5,7 +5,7 @@ with final as (
         orderid as order_id,
         paymentmethod as payment_method,
         status,
-        round(amount/100,2) as amount,
+        {{ cents_to_dollars('amount') }} as amount,
         created as created_at,
         status = 'fail' as is_failed
     from
