@@ -17,7 +17,7 @@ pivoted as (
     select
         order_id,
         {% for method in payment_methods -%}
-        sum(case when payment_method = '{{ method }}' then amount else 0 end) as '{{ method }}'_amount
+        sum(case when payment_method = '{{ method }}' then amount else 0 end) as {{ method }}_amount
         {%- if not loop.last -%}
         ,
 
@@ -27,9 +27,6 @@ pivoted as (
     from payments
     where status = 'success'
     group by 1
-
-
-
-
-
 )
+
+select * from pivoted
