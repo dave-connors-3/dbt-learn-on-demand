@@ -1,11 +1,11 @@
 with final as (
 
-    select 
+    select
         id as customer_id,
-        first_name, 
+        first_name,
         last_name
     from
-        raw.jaffle_shop.customers
+        {{ source('jaffle_shop', 'customers') }}
 )
 
 select * from final
