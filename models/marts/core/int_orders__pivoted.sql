@@ -25,7 +25,7 @@ pivoted as (
         {% endfor -%}
 
     from payments
-    where status = 'success'
+    where is_failed = false
     group by 1
 )
 
