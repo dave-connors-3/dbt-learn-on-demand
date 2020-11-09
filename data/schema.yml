@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: employees
+    quote_columns: false
+    description: employee to user map
+    columns:
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
