@@ -1,4 +1,12 @@
-with final as (
+with
+
+payments as (
+
+    select * from {{ source('stripe', 'payment') }}
+
+),
+
+final as (
 
     select
         id as payment_id,
@@ -8,8 +16,8 @@ with final as (
         {{ cents_to_dollars('amount') }} as amount,
         created as created_at,
         status = 'fail' as is_failed
-    from
-        {{ source('stripe', 'payment') }}
+
+    from payments
 )
 
 select * from final

@@ -1,16 +1,20 @@
-with final as (
+with
 
-    select 
-        order_id, 
-        
+payments as (
+
+    select * from {{ ref('stg_payments') }}
+
+),
+
+final as (
+
+    select
+        order_id,
         sum(amount) as total_order_amount,
         count(*) as total_payments
-    
-    from
-        {{ref('stg_payments')}}
-    where
-        is_failed = false
 
+    from payments
+    where is_failed = false
     group by 1
 
 )
