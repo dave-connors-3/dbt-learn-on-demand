@@ -10,4 +10,4 @@ sources:
       warn_after: {count: 1, period: hour}
     tables:
       - name: events
-        description: raw payment data
+        description: raw pageview data
