@@ -1,3 +1,9 @@
+{{
+    config(
+        pre_hook=["alter session set timezone='UTC'; "]
+    )
+}}
+
 with
 
 payments as (
