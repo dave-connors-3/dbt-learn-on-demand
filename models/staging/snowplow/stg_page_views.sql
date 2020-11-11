@@ -41,3 +41,8 @@ joined as (
 )
 
 select * from joined
+
+{% if target.name == 'dev' %}
+
+where COLLECTOR_TSTAMP >= {{ var('dev_date') }}
+{% endif %}
