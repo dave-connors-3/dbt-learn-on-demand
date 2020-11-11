@@ -1,3 +1,9 @@
+{{
+    config(
+        schema='staging'
+    )
+}}
+
 with
 
 orders as (
