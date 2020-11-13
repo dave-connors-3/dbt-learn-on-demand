@@ -25,3 +25,7 @@ sources:
             tests:
               - unique
               - not_null
+  - name: dbt_dconnors
+    database: analytics
+    tables:
+      - name: employees
